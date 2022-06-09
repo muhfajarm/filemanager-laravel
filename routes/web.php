@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AccreditationController;
+use App\Http\Controllers\FilemanagerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,22 +16,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+	return view('welcome');
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+	return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::get('/filemanager', function ()
-{
-	return view('filemanager.index');
-})->name('filemanager');
+Route::get('/filemanager', FilemanagerController::class)->name('filemanager');
 
-Route::get('/akreditasi', function ()
-{
-	return view('akreditasi.index');
-})->name('akreditasi');
+Route::get('/akreditasi', AccreditationController::class)->name('akreditasi');
 
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
