@@ -23,9 +23,9 @@ Route::get('/dashboard', function () {
 	return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::get('/filemanager', FilemanagerController::class)->name('filemanager');
+Route::get('/filemanager', FilemanagerController::class)->middleware(['auth'])->name('filemanager');
 
-Route::get('/akreditasi', AccreditationController::class)->name('akreditasi');
+Route::get('/akreditasi', AccreditationController::class)->middleware(['auth'])->name('akreditasi');
 
 
 require __DIR__ . '/auth.php';

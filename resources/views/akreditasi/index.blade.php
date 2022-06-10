@@ -9,6 +9,34 @@
 
   <div class="py-12">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+      <div class="input-group">
+        <input type="text" id="image_label" class="form-control" name="image" aria-label="Image" aria-describedby="button-image">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="button" id="button-image">Select</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+
+      document.getElementById('button-image').addEventListener('click', (event) => {
+        event.preventDefault();
+
+        window.open('/file-manager/fm-button', 'fm', 'width=1400,height=800');
+      });
+    });
+
+    // set file link
+    function fmSetLink($url) {
+      document.getElementById('image_label').value = $url;
+    }
+
+  </script>
+
+  <div class="py-12">
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
       <div x-data="{tab: 'criteria 1'}" class="flex border-b border-gray-200 dark:border-gray-700">
         <button class="h-10 px-4 py-2 -mb-px text-sm text-center text-gray-700 bg-transparent border-b-2 border-transparent sm:text-base dark:text-white whitespace-nowrap cursor-base focus:outline-none hover:border-gray-400" :class="{ 'text-blue-600 border-blue-500': tab === 'criteria 1' }" x-on:click.prevent="tab = 'criteria 1'" href="#">Kriteria 1</button>
         <button class="h-10 px-4 py-2 -mb-px text-sm text-center text-gray-700 bg-transparent border-b-2 border-transparent sm:text-base dark:text-white whitespace-nowrap cursor-base focus:outline-none hover:border-gray-400" :class="{ 'text-blue-600 border-blue-500': tab === 'criteria 2' }" x-on:click.prevent="tab = 'criteria 2'" href="#">Kriteria 2</button>
