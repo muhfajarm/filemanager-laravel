@@ -25,7 +25,8 @@ Route::get('/dashboard', function () {
 
 Route::get('/filemanager', FilemanagerController::class)->middleware(['auth'])->name('filemanager');
 
-Route::get('/akreditasi', AccreditationController::class)->middleware(['auth'])->name('akreditasi');
+Route::get('/akreditasi', [AccreditationController::class, 'index'])->middleware(['auth'])->name('akreditasi');
+Route::post('/akreditasi', [AccreditationController::class, 'store'])->middleware(['auth'])->name('addAkreditasi');
 
 
 require __DIR__ . '/auth.php';
