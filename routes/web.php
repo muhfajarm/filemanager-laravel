@@ -18,15 +18,23 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
 	return view('welcome');
 });
+Route::get('akreditasi', function () {
+	return view('akreditasi.index');
+})->name('akreditasi');
 
-Route::get('/dashboard', function () {
-	return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::group(['prefix' => 'collage', 'middleware' => 'auth'], function () {
+	Route::get('/dashboard', function () {
+		return view('dashboard');
+	})->name('dashboard');
 
-Route::get('/filemanager', FilemanagerController::class)->middleware(['auth'])->name('filemanager');
+	Route::get('/filemanager', FilemanagerController::class)
+		->name('filemanager');
 
-Route::get('/akreditasi', [AccreditationController::class, 'index'])->middleware(['auth'])->name('akreditasi');
-Route::post('/akreditasi', [AccreditationController::class, 'store'])->middleware(['auth'])->name('addAkreditasi');
+	Route::get('/akreditasi', [AccreditationController::class, 'index'])
+		->name('collageAkreditasi');
+	Route::post('/akreditasi', [AccreditationController::class, 'store'])
+		->name('collageAddAkreditasi');
+});
 
 
 require __DIR__ . '/auth.php';
