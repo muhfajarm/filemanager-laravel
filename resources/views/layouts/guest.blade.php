@@ -15,8 +15,11 @@
 
   <!-- Scripts -->
   <script src="{{ asset('js/app.js') }}" defer></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body class="dark:bg-slate-700">
+  @include('components.guest.navbar')
+
   <div class="font-sans text-gray-900 antialiased dark:text-gray-100">
     {{ $slot }}
   </div>
