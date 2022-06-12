@@ -20,12 +20,13 @@
           </li>
         </ul>
 
-        <div class="w-full pt-4">
+        <div class="w-full pt-6 pb-4 px-4">
           <div x-show="openTab === 'criteria 1'">
             <h3 class="dark:text-gray-100">Kriteria 1</h3>
-            <ul>
+            <ul class="mt-2">
               <li class="text-blue-600">
                 <a href="{{ asset('storage/LPMI/AMI Tahun 2018/AMI TAHUN 2018.pdf') }}" target="_blank()" class="dark:text-gray-100">AMI Tahun 2018</a>
+                <p class="text-gray-600 dark:text-gray-300">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora expedita dicta totam aspernatur doloremque. Excepturi iste iusto eos enim reprehenderit nisi, accusamus delectus nihil quis facere in modi ratione libero!</p>
               </li>
             </ul>
           </div>

@@ -26,9 +26,7 @@
 <body class="font-sans antialiased dark:bg-slate-700">
   <div class="min-h-screen bg-gray-100 dark:bg-slate-700">
 
-    {{-- @if ($request->isNot('filemanager/*')) --}}
     @include('layouts.navigation')
-    {{-- @endif --}}
 
     <!-- Page Heading -->
     <header class="bg-white shadow dark:bg-slate-700 dark:shadow-gray-100">

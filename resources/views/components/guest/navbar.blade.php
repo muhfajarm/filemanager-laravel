@@ -17,8 +17,16 @@
     </div>
 
     <div>
-      <a href="#" class="border-b-2 border-transparent hover:text-gray-800 transition-colors duration-200 transform dark:hover:text-gray-200 hover:border-blue-500 mx-1.5 sm:mx-6">
-      </a>
+      @if (Route::has('login'))
+      <div class="hidden sm:block">
+        @auth
+        <a href="{{ route('dashboard') }}" class="border-b-2 border-transparent hover:text-gray-800 transition-colors duration-200 transform dark:hover:text-gray-200 hover:border-blue-500 mx-1.5 sm:mx-6">
+          {{ __('dashboard') }}
+        </a>
+        @endauth
+      </div>
+      @endif
+
     </div>
 
   </div>

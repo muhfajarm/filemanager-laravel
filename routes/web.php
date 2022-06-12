@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AccreditationController;
 use App\Http\Controllers\FilemanagerController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,9 +16,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-	return view('index');
-})->name('home');
+Route::get('/', HomeController::class)
+	->name('home');
 Route::get('akreditasi', function () {
 	return view('akreditasi.index');
 })->name('akreditasi');

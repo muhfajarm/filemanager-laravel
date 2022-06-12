@@ -18,7 +18,10 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body class="dark:bg-slate-700">
+  @if (Request::is('auth/*'))
+  @else
   @include('components.guest.navbar')
+  @endif
 
   <div class="font-sans text-gray-900 antialiased dark:text-gray-100">
     {{ $slot }}
