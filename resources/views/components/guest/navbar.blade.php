@@ -2,7 +2,7 @@
   <div class="container flex items-center justify-between p-6 mx-auto text-gray-600 capitalize dark:text-gray-300">
     <div>
       <a class="font-bold text-gray-800 transition-colors duration-200 transform dark:text-white lg:text-3xl hover:text-gray-700 dark:hover:text-gray-300" href="{{ route('home') }}">
-        <x-guest.logo class="w-[25px] h-[25px] fill-current" />
+        <x-guest.logo class="w-[50px] h-[50px] fill-current" />
       </a>
     </div>
 
