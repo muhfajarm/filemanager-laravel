@@ -17,14 +17,16 @@
   <script src="{{ asset('js/app.js') }}" defer></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
-<body class="dark:bg-slate-700">
+<body class="dark:bg-slate-700 flex flex-col min-h-screen">
   @if (Request::is('auth/*'))
   @else
-  @include('components.guest.navbar')
+  <x-guest.navbar />
   @endif
 
-  <div class="font-sans text-gray-900 antialiased dark:text-gray-100">
+  <div class="flex-grow font-sans text-gray-900 antialiased dark:text-gray-100 mb-auto">
     {{ $slot }}
   </div>
+
+  <x-guest.footer />
 </body>
 </html>
