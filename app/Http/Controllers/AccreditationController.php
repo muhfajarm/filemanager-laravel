@@ -8,7 +8,7 @@ class AccreditationController extends Controller
 {
 	public function index(Request $request)
 	{
-		return view('collage.akreditasi.index');
+		return view('collage.accreditation.index');
 	}
 
 	public function store(Request $request)

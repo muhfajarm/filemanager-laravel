@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AccreditationController;
+use App\Http\Controllers\CriteriaController;
 use App\Http\Controllers\FilemanagerController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -23,17 +24,34 @@ Route::get('akreditasi', function () {
 })->name('akreditasi');
 
 Route::group(['prefix' => 'collage', 'middleware' => 'auth'], function () {
-	Route::get('/dashboard', function () {
+	Route::get('/', function () {
+		return redirect()->route('dashboard');
+	});
+
+	Route::get('dashboard', function () {
 		return view('dashboard');
 	})->name('dashboard');
 
-	Route::get('/filemanager', FilemanagerController::class)
+	Route::get('filemanager', FilemanagerController::class)
 		->name('filemanager');
 
-	Route::get('/akreditasi', [AccreditationController::class, 'index'])
-		->name('collageAkreditasi');
-	Route::post('/akreditasi', [AccreditationController::class, 'store'])
-		->name('collageAddAkreditasi');
+	Route::group(['prefix' => 'accreditation'], function () {
+		Route::get('/', [AccreditationController::class, 'index'])
+			->name('collage.accreditation');
+		Route::post('/', [AccreditationController::class, 'store'])
+			->name('collage.add.accreditation');
+
+		Route::get('/criterias', [CriteriaController::class, 'index'])
+			->name('collage.criteria');
+		Route::post('/criterias', [CriteriaController::class, 'store'])
+			->name('collage.criteria.store');
+		Route::get('/criterias/{id}/edit', [CriteriaController::class, 'edit'])
+			->name('collage.criteria.edit');
+		Route::put('/criterias/{id}', [CriteriaController::class, 'update'])
+			->name('collage.criteria.update');
+		Route::delete('/criterias/{id}', [CriteriaController::class, 'destroy'])
+			->name('collage.criteria.delete');
+	});
 });
 
 
